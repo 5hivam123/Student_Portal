@@ -1,0 +1,31 @@
+{% extends "students/base.html" %}
+
+{% block content %}
+
+<h1>Student Result Dashboard</h1>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Marks</th>
+        <th>Result</th>
+    </tr>
+
+    {% for student in students %}
+    <tr>
+        <td>{{ student.name }}</td>
+        <td>{{ student.course }}</td>
+        <td>{{ student.marks }}</td>
+        <td>
+            {% if student.marks >= 40 %}
+                <span class="pass">Pass</span>
+            {% else %}
+                <span class="fail">Fail</span>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
